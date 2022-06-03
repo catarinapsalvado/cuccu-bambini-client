@@ -3,9 +3,7 @@ import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "../context/auth.context"; // <== IMPORT
 
 function Navbar() {
-  // Subscribe to the AuthContext to gain access to
-  // the values from AuthContext.Provider `value` prop
-  const { isLoggedIn, user } = useContext(AuthContext); // <== ADD
+  const { isLoggedIn } = useContext(AuthContext); // <== ADD
 
   //  Update the rendering logic to display different content
   //  depending on the user being logged in or not
@@ -15,7 +13,6 @@ function Navbar() {
         <button>Home</button>
       </Link>
 
-      {/*    UPDATE     */}
       {isLoggedIn && (
         <>
           <Link to="/products-list">
@@ -29,7 +26,7 @@ function Navbar() {
         <>
           <Link to="/signup">
             {" "}
-            <button>Sign Up</button>{" "}
+            <button>Sign Up</button>
           </Link>
           <Link to="/login">
             {" "}

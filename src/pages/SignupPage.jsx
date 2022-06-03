@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://localhost:5005";
-
 function SignupPage() {
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -22,7 +20,7 @@ function SignupPage() {
     const body = { username, password, email };
 
     axios
-      .post(`${API_URL}/auth/signup`, body)
+      .post(`${process.env.REACT_APP_API_URL}/auth/signup`, body)
       .then(() => {
         navigate("/login");
       })
@@ -53,7 +51,7 @@ function SignupPage() {
         />
 
         <label htmlFor="email">E-mail</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <input type="text" name="email" value={email} onChange={handleEmail} />
 
         <button type="submit">Sign Up</button>
       </form>
