@@ -34,6 +34,18 @@ function Navbar() {
           </Link>
         </>
       )}
+
+      <form action="/products-list" method="get">
+        <input
+          type="text"
+          name="products-list"
+          id="search-bar"
+          placeholder="Ex: dresses, cloth diapers"
+        />
+        <button class="button-home" type="submit">
+          Go
+        </button>
+      </form>
     </nav>
   );
 }
