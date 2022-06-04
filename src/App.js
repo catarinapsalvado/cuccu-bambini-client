@@ -6,9 +6,10 @@ import IsAnon from "./components/IsAnon";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ProductsList from "./pages/ProductsList";
-import Clouthing from "./pages/Clothing";
+import Clothing from "./pages/Clothing";
 import Footwear from "./pages/Footwear";
 import Gearbaby from "./pages/Gearbaby";
+import IsPrivate from "./components/IsPrivate";
 
 function App() {
   return (
@@ -33,13 +34,43 @@ function App() {
           }
         />
         <Route path="/" element={<Home />} />
-        <Route path="/products-list" element={<ProductsList />} />
-        <Route path="/Clothings" element={<Clouthing />} />
-        <Route path="/Footwear" element={<Footwear />} />
-        <Route path="/GearBaby" element={<Gearbaby />} />
+        <Route
+          path="/products-list"
+          element={
+            <IsAnon>
+              <ProductsList />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/clothings"
+          element={
+            <IsAnon>
+              <Clothing />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/footwear"
+          element={
+            <IsAnon>
+              <Footwear />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/GearBaby"
+          element={
+            <IsAnon>
+              <Gearbaby />
+            </IsAnon>
+          }
+        />
       </Routes>
     </div>
   );
 }
+
+//Add IsPrivate in the Private Routes
 
 export default App;
