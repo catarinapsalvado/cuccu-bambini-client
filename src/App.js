@@ -9,6 +9,7 @@ import ProductsList from "./pages/ProductsList";
 import Clothing from "./pages/Clothing";
 import Footwear from "./pages/Footwear";
 import Gearbaby from "./pages/Gearbaby";
+import ProductDetails from "./pages/ProductDetails";
 import IsPrivate from "./components/IsPrivate";
 
 function App() {
@@ -59,10 +60,18 @@ function App() {
           }
         />
         <Route
-          path="/GearBaby"
+          path="/gearbaby"
           element={
             <IsAnon>
               <Gearbaby />
+            </IsAnon>
+          }
+        />
+          <Route
+          path="`/product-details/${productId}`"
+          element={
+            <IsAnon>
+              <ProductDetails />
             </IsAnon>
           }
         />
