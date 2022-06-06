@@ -6,9 +6,7 @@ import IsAnon from "./components/IsAnon";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import ProductsList from "./pages/ProductsList";
-import Clothing from "./pages/Clothing";
-import Footwear from "./pages/Footwear";
-import Gearbaby from "./pages/Gearbaby";
+import CategoryList from "./pages/CategoryList";
 import ProductDetails from "./pages/ProductDetails";
 import IsPrivate from "./components/IsPrivate";
 
@@ -44,26 +42,10 @@ function App() {
           }
         />
         <Route
-          path="/clothings"
+          path="/category/:category"
           element={
             <IsAnon>
-              <Clothing />
-            </IsAnon>
-          }
-        />
-        <Route
-          path="/footwear"
-          element={
-            <IsAnon>
-              <Footwear />
-            </IsAnon>
-          }
-        />
-        <Route
-          path="/gearbaby"
-          element={
-            <IsAnon>
-              <Gearbaby />
+              <CategoryList />
             </IsAnon>
           }
         />
