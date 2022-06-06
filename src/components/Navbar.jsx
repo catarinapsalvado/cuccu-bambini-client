@@ -32,12 +32,16 @@ function Navbar() {
             {" "}
             <button>Login</button>{" "}
           </Link>
+          <Link to="/create-product">
+            {" "}
+            <button>Create products</button>{" "}
+          </Link>
           <button onClick={logoutUser}>Logout</button>
           <span>{user && user.name}</span>
         </>
       )}
 
-      <form action="/products-list" method="get">
+      {/*  <form action="/products-list" method="get">
         <input
           type="text"
           name="products-list"
@@ -47,7 +51,7 @@ function Navbar() {
         <button className="button-home" type="submit">
           Go
         </button>
-      </form>
+      </form> */}
     </nav>
   );
 }
