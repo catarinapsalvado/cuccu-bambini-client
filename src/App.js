@@ -9,6 +9,7 @@ import ProductsList from "./pages/ProductsList";
 import CategoryList from "./pages/CategoryList";
 import ProductDetails from "./pages/ProductDetails";
 import IsPrivate from "./components/IsPrivate";
+import EditProduct from "./pages/EditProduct";
 
 function App() {
   return (
@@ -50,11 +51,19 @@ function App() {
           }
         />
           <Route
-          path="`/product-details/${productId}`"
+          path="/product-details/:productId"
           element={
             <IsAnon>
               <ProductDetails />
             </IsAnon>
+          }
+        />
+        <Route
+          path="/product-details/:productId/edit"
+          element={
+            <IsPrivate>
+              <EditProduct />
+            </IsPrivate>
           }
         />
       </Routes>

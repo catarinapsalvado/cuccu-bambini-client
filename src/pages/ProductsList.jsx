@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
-import { Grid } from "@mui/material";
+/* import { Grid } from "@mui/material"; */
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
@@ -10,7 +10,7 @@ function ProductsList() {
   /* const storedToken = localStorage.getItem("authToken");  */
 
   // Send the token through the request "Authorization" Headers
-  const getProducts = ()=> {
+  const getDetails = ()=> {
   axios
     .get(`${process.env.REACT_APP_API_URL}/api/products-list`)
       .then((response) => setProducts(response.data))
@@ -18,10 +18,10 @@ function ProductsList() {
   }
   
        useEffect(() => {
-     getProducts();
+     getDetails();
     }, []);   
 
-    console.log(products)
+    
   return (
     <div>
     
