@@ -10,6 +10,7 @@ import CategoryList from "./pages/CategoryList";
 import ProductDetails from "./pages/ProductDetails";
 import IsPrivate from "./components/IsPrivate";
 import EditProduct from "./pages/EditProduct";
+import AddProduct from "./pages/AddProducts";
 
 
 function App() {
