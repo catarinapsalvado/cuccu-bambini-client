@@ -3,7 +3,7 @@ import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "../context/auth.context"; // <== IMPORT
 
 function Navbar() {
-  const { isLoggedIn } = useContext(AuthContext); // <== ADD
+  const { isLoggedIn, user, logoutUser } = useContext(AuthContext); // <== ADD
 
   //  Update the rendering logic to display different content
   //  depending on the user being logged in or not
@@ -32,6 +32,8 @@ function Navbar() {
             {" "}
             <button>Login</button>{" "}
           </Link>
+          <button onClick={logoutUser}>Logout</button>
+          <span>{user && user.name}</span>
         </>
       )}
 
@@ -42,7 +44,7 @@ function Navbar() {
           id="search-bar"
           placeholder="Ex: dresses, cloth diapers"
         />
-        <button class="button-home" type="submit">
+        <button className="button-home" type="submit">
           Go
         </button>
       </form>
