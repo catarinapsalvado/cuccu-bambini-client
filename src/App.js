@@ -11,10 +11,13 @@ import ProductDetails from "./pages/ProductDetails";
 import IsPrivate from "./components/IsPrivate";
 import EditProduct from "./pages/EditProduct";
 
+
 function App() {
   return (
     <div className="App">
       <Navbar />
+      {/* <Searchbar /> */}
+
       <Routes>
         <Route
           path="/signup"
@@ -42,6 +45,7 @@ function App() {
             </IsAnon>
           }
         />
+        <Route path="/create-product" element={<AddProduct />} />
         <Route
           path="/category/:category"
           element={
