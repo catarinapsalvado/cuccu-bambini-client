@@ -6,13 +6,13 @@ function Home() {
     <div className="homepage">
       <h1>Welcome to the Cuccu, Bambini!</h1>
       <div className="homepage-links">
-        <Link to="/clothings">Clothings</Link>
+        <Link to="/clothing">Clothing</Link>
 
         <br />
         <Link to="/footwear">Footwear</Link>
 
         <br />
-        <Link to="/gear-baby">Gear-Baby</Link>
+        <Link to="/gear-baby">Baby gear</Link>
       </div>
     </div>
   );

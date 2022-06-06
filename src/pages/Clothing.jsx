@@ -1,8 +1,7 @@
 import React from "react";
 
-
-function Clouthing() {
-  return <div>Clouthing</div>;
+function Clothing() {
+  return <div>Clothing</div>;
 }
 
-export default Clouthing;
+export default Clothing;
