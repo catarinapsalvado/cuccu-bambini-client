@@ -19,10 +19,10 @@ export const Form = styled.form`
   width:40vw;
 `;
 
-export const Title = styled.span`
+export const Title = styled.h3`
   color: #444;
   font-size: 24px;
-  padding-bottom: 16px;
+  padding: 16px;
 `;
 
 export const UserInput = styled.input`
@@ -44,7 +44,8 @@ export const UserInput = styled.input`
 `;
 
 export const Button = styled.button`
-  height: 40px;
+  
+  min-width:10vw;
   align-content: center;
   text-align: center;
   align-items: center;

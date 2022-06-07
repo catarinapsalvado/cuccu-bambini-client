@@ -23,10 +23,10 @@ function Home() {
     <div className="homepage">
       <h1>Welcome to Cuccu, Bambini!</h1>
       <div className="homepage-links">
-        <Link to="/products-list">See all the products</Link>
+        <Link to="/products-list">See all products</Link>
         <br />
 
-        <Link to="/category/clothings">Clothings</Link>
+        <Link to="/category/clothings">Clothing</Link>
 
         <br />
         <Link to="/category/footwear">Footwear</Link>

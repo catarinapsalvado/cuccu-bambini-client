@@ -12,6 +12,7 @@ import ProductDetails from "./pages/ProductDetails";
 import IsPrivate from "./components/IsPrivate";
 import EditProduct from "./pages/EditProduct";
 import AddProduct from "./pages/AddProducts";
+import Cart from "./pages/Cart"
 
 function App() {
   return (
@@ -49,6 +50,14 @@ function App() {
           element={
             <IsPrivate>
               <EditProduct />
+            </IsPrivate>
+          }
+        />
+<Route
+          path="/cart"
+          element={
+            <IsPrivate>
+              <Cart />
             </IsPrivate>
           }
         />
