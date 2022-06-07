@@ -54,9 +54,21 @@ function EditProduct() {
     getProducts();
   }, []);
 
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+
+    uploadData.append("image", e.target.files[0]);
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
+      .then((response) => {
+        setImage(response.fileUrl);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
+
   const handleName = (e) => setName(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
-  const handleImage = (e) => setImage(e.target.value);
   const handleBrand = (e) => setBrand(e.target.value);
   const handleCategory = (e) => setCategory(e.target.value);
   const handleSize = (e) => setSize(e.target.value);
@@ -83,7 +95,6 @@ function EditProduct() {
         setSize("");
         setPrice("");
         navigate(`/products-list`);
-        console.log("Hi");
       })
       .catch((err) => console.log(err));
   };
@@ -133,6 +144,8 @@ function EditProduct() {
           value={available}
           onChange={handleAvailable}
         />
+        <label htmlFor="image">Image:</label>
+        <input type="file" onChange={(e) => handleFileUpload(e)} />
 
         {/*    <label htmlFor="image">
           Image:
