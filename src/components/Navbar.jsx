@@ -18,7 +18,16 @@ function Navbar() {
           <Link to="/products-list">
             <button>Products List</button>
           </Link>
-          <button>Logout</button>
+          {user && user.role === "admin" && (
+            <Link to="/create-product">
+              {" "}
+              <button>Create products</button>{" "}
+            </Link>
+          )}
+          <Link to="/" onClick={logoutUser}>
+            <button>Logout</button>
+          </Link>
+          <span>{user && user.name}</span>
         </>
       )}
 
@@ -32,12 +41,6 @@ function Navbar() {
             {" "}
             <button>Login</button>{" "}
           </Link>
-          <Link to="/create-product">
-            {" "}
-            <button>Create products</button>{" "}
-          </Link>
-          <button onClick={logoutUser}>Logout</button>
-          <span>{user && user.name}</span>
         </>
       )}
 

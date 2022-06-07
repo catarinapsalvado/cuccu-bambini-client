@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5005";
 
@@ -10,7 +10,7 @@ function AuthProviderWrapper(props) {
   const [user, setUser] = useState(null);
 
   const storeToken = (token) => localStorage.setItem("authToken", token);
-  const removeToken = (token) => localStorage.removeItem("authToken");
+  const removeToken = () => localStorage.removeItem("authToken");
 
   const authenticateUser = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -62,4 +62,4 @@ function AuthProviderWrapper(props) {
   );
 }
 
-export { AuthContext, AuthProviderWrapper };
+export { AuthContext, AuthProviderWrapper, useContext };

@@ -23,7 +23,9 @@ function ProductsList() {
   const getProducts = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/products-list`)
-      .then((response) => setProducts(response.data))
+      .then((response) => {
+        setProducts(response.data);
+      })
       .catch((error) => console.log(error));
   };
 

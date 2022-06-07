@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import { AuthContext, useContext } from "../context/auth.context";
 
 function ProductDetails() {
   const [item, setItem] = useState([]);
   const { productId } = useParams();
+  const { user } = useContext(AuthContext);
+
+  console.log(user);
 
   const getProducts = () => {
     axios
@@ -19,7 +23,7 @@ function ProductDetails() {
 
   useEffect(() => {
     getProducts();
-  });
+  }, []);
 
   return (
     <div className="itemDetails">
@@ -33,6 +37,14 @@ function ProductDetails() {
           <Link to="/products-list">
             <button>Back to Products List</button>
           </Link>
+
+          {user && user.role === "admin" && (
+            <>
+              <Link to={`/product-details/${item._id}/edit`}>
+                <button>Edit Products</button>
+              </Link>
+            </>
+          )}
         </>
       )}
     </div>

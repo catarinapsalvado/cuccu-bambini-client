@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+//use context user 
+
 function AddProduct(props) {
   const { addNewProduct } = props;
   const [name, setName] = useState("");

@@ -12,7 +12,6 @@ import IsPrivate from "./components/IsPrivate";
 import EditProduct from "./pages/EditProduct";
 import AddProduct from "./pages/AddProducts";
 
-
 function App() {
   return (
     <div className="App">
@@ -32,36 +31,17 @@ function App() {
           path="/login"
           element={
             <IsAnon>
-              {" "}
               <LoginPage />
             </IsAnon>
           }
         />
         <Route path="/" element={<Home />} />
-        <Route
-          path="/products-list"
-          element={
-            <IsAnon>
-              <ProductsList />
-            </IsAnon>
-          }
-        />
+        <Route path="/products-list" element={<ProductsList />} />
         <Route path="/create-product" element={<AddProduct />} />
+        <Route path="/category/:category" element={<CategoryList />} />
         <Route
-          path="/category/:category"
-          element={
-            <IsAnon>
-              <CategoryList />
-            </IsAnon>
-          }
-        />
-          <Route
           path="/product-details/:productId"
-          element={
-            <IsAnon>
-              <ProductDetails />
-            </IsAnon>
-          }
+          element={<ProductDetails />}
         />
         <Route
           path="/product-details/:productId/edit"

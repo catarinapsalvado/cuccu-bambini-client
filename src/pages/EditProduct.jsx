@@ -13,6 +13,7 @@ function EditProduct() {
   const [available, setAvailable] = useState("");
 
   const { productId } = useParams();
+
   const navigate = useNavigate();
 
   const getProducts = () => {
@@ -34,9 +35,24 @@ function EditProduct() {
       .catch((error) => console.log(error));
   };
 
+  const deleteProduct = () => {
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .delete(
+        `${process.env.REACT_APP_API_URL}/api/products-list/${productId}`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      )
+      .then(() => {
+        navigate(`/`);
+      })
+      .catch((error) => console.log(error));
+  };
+
   useEffect(() => {
     getProducts();
-  });
+  }, []);
 
   const handleName = (e) => setName(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
@@ -53,7 +69,7 @@ function EditProduct() {
 
     axios
       .put(
-        `process.env.REACT_APP_API_URL}/api/products-list/${productId}`,
+        `${process.env.REACT_APP_API_URL}/api/products-list/${productId}`,
         body
       )
       /* { headers: { Authorization: `Bearer ${storedToken}` } } */
@@ -66,7 +82,8 @@ function EditProduct() {
         setCategory("");
         setSize("");
         setPrice("");
-        navigate(`/products-list}`);
+        navigate(`/products-list`);
+        console.log("Hi");
       })
       .catch((err) => console.log(err));
   };
@@ -101,29 +118,23 @@ function EditProduct() {
         <label htmlFor="size">Size</label>
         <input type="text" name="size" value={size} onChange={handleSize} />
 
-        <label htmlFor="size">Size</label>
-        <input type="text" name="size" value={size} onChange={handleSize} />
-
         <label htmlFor="category">Category</label>
         <input
-          type="select"
+          type="text"
           name="category"
           value={category}
           onChange={handleCategory}
         />
-        <option value="clothing">Clothing</option>
-        <option value="footwear">Footwear</option>
-        <option value="baby-geat">Baby Gear</option>
 
         <label htmlFor="available">Available</label>
         <input
-          type="select"
+          type="text"
           name="available"
           value={available}
           onChange={handleAvailable}
         />
 
-        <label htmlFor="image">
+        {/*    <label htmlFor="image">
           Image:
           <input
             type="file"
@@ -132,11 +143,11 @@ function EditProduct() {
             onChange={handleImage}
             class="form-control-file"
           />
-        </label>
+        </label> */}
 
         <button type="submit">Edit</button>
       </form>
-      {/* <button onClick={deleteProject}>Delete</button> */}
+      <button onClick={deleteProduct}>Delete</button>
     </div>
   );
 }
