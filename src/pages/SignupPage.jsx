@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Title, Form, UserInput, Button, Container } from './LoginPage/LoginPage.styles'
 
 function SignupPage() {
   const [password, setPassword] = useState("");
@@ -31,11 +32,12 @@ function SignupPage() {
 
   return (
     <div className="SignupPage">
-      <h1>Sign Up</h1>
+    <Container>
+      <Title>Sign Up</Title>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Name</label>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <label htmlFor="username">Username</label>
+        <UserInput
           type="text"
           name="username"
           value={username}
@@ -43,7 +45,7 @@ function SignupPage() {
         />
 
         <label htmlFor="password">Password</label>
-        <input
+        <UserInput
           type="password"
           name="password"
           value={password}
@@ -51,14 +53,15 @@ function SignupPage() {
         />
 
         <label htmlFor="email">E-mail</label>
-        <input type="text" name="email" value={email} onChange={handleEmail} />
+        <UserInput type="text" name="email" value={email} onChange={handleEmail} />
 
-        <button type="submit">Sign Up</button>
-      </form>
+        <Button type="submit">SIGN UP</Button>
+      </Form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <p>Already have an account?</p>
       <Link to="/login"> Login</Link>
+      </Container>
     </div>
   );
 }

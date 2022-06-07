@@ -1,7 +1,10 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/auth.context";
+import { AuthContext } from "../../context/auth.context";
 import axios from "axios";
+ import { Title, Form, UserInput, Button,  Container } from './LoginPage.styles' 
+
+
 
 function LoginPage() {
   const [password, setPassword] = useState("");
@@ -34,11 +37,13 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
+     <Container> 
+      <Title>Login</Title>
 
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
+      
         <label htmlFor="username">Email</label>
-        <input
+        <UserInput
           type="text"
           name="username"
           value={email}
@@ -46,19 +51,20 @@ function LoginPage() {
         />
 
         <label htmlFor="password">Password</label>
-        <input
+        <UserInput
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
 
-        <button type="submit">Login</button>
-      </form>
+        <Button type="submit">LOGIN</Button>
+      </Form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <p>Don't have an account?</p>
       <Link to="/signup"> Sign up</Link>
+       </Container> 
     </div>
   );
 }

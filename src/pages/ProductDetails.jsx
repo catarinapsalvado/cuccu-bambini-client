@@ -30,6 +30,7 @@ function ProductDetails() {
       {item && (
         <>
           <h1>{item.name}</h1>
+          <h1>{item.image}</h1>
           <p>{item.description}</p>
           <p>{item.price}</p>
           <p>{item.brand}</p>

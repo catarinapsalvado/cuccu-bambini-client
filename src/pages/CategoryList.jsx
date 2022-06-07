@@ -4,7 +4,8 @@ import { Link, useParams } from "react-router-dom";
 
 function CategoryList() {
   const [products, setProducts] = useState([]);
-  const { category } = useParams();
+  const { category, _id } = useParams();
+ 
 console.log(category)
 
 const getCategory =()=>{
@@ -35,7 +36,9 @@ const getCategory =()=>{
             <p>Price: {item.price}</p>
             <p>{item.size}</p>
             <p>{item.brand}</p>
-           <button> See more </button>
+            <Link to={`/product-details/${_id}`}>
+        <button>See item</button>
+      </Link>
           </div>
         );
       }) 
