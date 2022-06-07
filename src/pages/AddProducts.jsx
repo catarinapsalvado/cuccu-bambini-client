@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
-//use context user 
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function AddProduct(props) {
   const { addNewProduct } = props;
@@ -16,6 +15,19 @@ function AddProduct(props) {
   const [available, setAvailable] = useState("");
 
   //Handler functions
+
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+
+    uploadData.append("image", e.target.files[0]);
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
+      .then((response) => {
+        setImage(response.data.fileUrl);
+      })
+      .catch((err) => console.log("Error while uploading the file: ", err));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,11 +54,9 @@ function AddProduct(props) {
         setAvailable("");
       })
       .then(() => {
-        navigate("/product-list");
+        navigate("/products-list");
       })
       .catch((err) => alert(err));
-
-    /* addNewProduct(body); */
   };
 
   const handleName = (e) => setName(e.target.value);
@@ -58,27 +68,6 @@ function AddProduct(props) {
   const handlePrice = (e) => setPrice(e.target.value);
   const handleAvailable = (e) => setAvailable(e.target.value);
   const navigate = useNavigate();
-
-  /* const getProducts = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/api/create-product/`)
-      .then((response) => {
-        setName(response.data.name);
-        setDescription(response.data.description);
-        setImage(response.data.image);
-        setAvailable(response.data.available);
-        setBrand(response.data.brand);
-        setCategory(response.data.category);
-        setSize(response.data.size);
-        setPrice(response.data.price);
-        navigate("/");
-      })
-      .catch((error) => console.log(error));
-  };
-
-  useEffect(() => {
-    getProducts();
-  }); */
 
   return (
     <div>
@@ -127,6 +116,9 @@ function AddProduct(props) {
 
         <label htmlFor="brand">Brand</label>
         <input type="text" name="brand" value={brand} onChange={handleBrand} />
+
+        <label htmlFor="image">Image:</label>
+        <input type="file" onChange={(e) => handleFileUpload(e)} />
 
         <label htmlFor="size">Size</label>
         <input type="text" name="size" value={size} onChange={handleSize} />
