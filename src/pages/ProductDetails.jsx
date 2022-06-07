@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext, useContext } from "../context/auth.context";
+import { ContainerProductDetails, ContainerAllProductDetails } from "./ProductDetails.styles"
+import { Button } from "./LoginPage/LoginPage.styles";
 
 function ProductDetails() {
   const [item, setItem] = useState([]);
@@ -26,29 +28,35 @@ function ProductDetails() {
   }, []);
 
   return (
+    <ContainerAllProductDetails>
     <div className="itemDetails">
+    
       {item && (
         <>
+        <img src={item.image}/>
+        <ContainerProductDetails>
           <h1>{item.name}</h1>
-          <h1>{item.image}</h1>
           <p>{item.description}</p>
           <p>{item.price}</p>
           <p>{item.brand}</p>
           <p>{item.size}</p>
+          </ContainerProductDetails>
           <Link to="/products-list">
-            <button>Back to Products List</button>
+            <Button>Back to Products List</Button>
           </Link>
 
           {user && user.role === "admin" && (
             <>
               <Link to={`/product-details/${item._id}/edit`}>
-                <button>Edit Products</button>
+                <Button>Edit Products</Button>
               </Link>
             </>
           )}
         </>
       )}
+      
     </div>
+    </ContainerAllProductDetails>
   );
 }
 
