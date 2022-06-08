@@ -63,7 +63,7 @@ function ProductsList() {
           return (
             <ProductCard
               key={item._id}
-              className="card"
+              className="cardd"
               item={item}
               cart={cart}
               isUpdated={isUpdated}

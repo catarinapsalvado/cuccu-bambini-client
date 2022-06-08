@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext, useContext } from "../context/auth.context";
-import { ContainerProductDetails, ContainerAllProductDetails, ImageCard,  } from "./ProductDetails.styles"
+import { ContainerProductDetails, ContainerAllProductDetails, ImageCard,  } from "./Styles/ProductDetails.styles"
 import { Button } from "./Styles/Form.styles.jsx";
 
 

@@ -47,7 +47,7 @@ export const Button = styled.button`
   
   min-width:10vw;
   margin: 2%;
-  height: 40px;
+  height: 10vh;
   align-content: center;
   text-align: center;
   align-items: center;
