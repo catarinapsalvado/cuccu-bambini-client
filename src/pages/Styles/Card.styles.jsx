@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
  export const Cardtag = styled.div`
+ 
   margin: 30px;
   width: 25%;
   display: flex;
-  display:inline-block;
+/*   display:inline-block; */
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
