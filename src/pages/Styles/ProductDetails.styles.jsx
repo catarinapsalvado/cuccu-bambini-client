@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 export const ImageCard = styled.img`
 width: 50vw;
-height: auto
-`
+height: auto;
+`;
 
   export const ContainerAllProductDetails = styled.div`
     display: flex;
@@ -14,8 +14,7 @@ height: auto
     padding: 0.5rem 1rem;
     border-radius: 10px;
    
-    
-  `
+  `;
 
 export const ContainerProductDetails = styled.div `
    
@@ -26,5 +25,4 @@ export const ContainerProductDetails = styled.div `
     padding: 0.5rem 1rem;
     border-radius: 10px;
   
-    
-   ` 
+   ` ;
