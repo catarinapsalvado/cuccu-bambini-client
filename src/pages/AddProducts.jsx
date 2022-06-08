@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Title, Form, UserInput, Button,  Container } from './LoginPage/LoginPage.styles'
+import { Title, Form, UserInput, Button,  Container } from './Styles/Form.styles.jsx'
+import styled from "styled-components";
+
+
 
 
 function AddProduct(props) {
@@ -15,10 +18,12 @@ function AddProduct(props) {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [available, setAvailable] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
   //Handler functions
 
   const handleFileUpload = (e) => {
+    setIsUploading(true)
     const uploadData = new FormData();
 
     uploadData.append("image", e.target.files[0]);
@@ -27,12 +32,17 @@ function AddProduct(props) {
       .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
       .then((response) => {
         setImage(response.data.fileUrl);
+        setIsUploading(false)
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+if(isUploading) return
+
+
     const body = {
       name,
       description,
@@ -73,7 +83,7 @@ function AddProduct(props) {
 
   return (
     <div>
-      <h4>Add Product</h4>
+      <Title>Add Product</Title>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input

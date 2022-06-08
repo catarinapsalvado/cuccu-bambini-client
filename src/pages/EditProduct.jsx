@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import {Form, UserInput, Container, Button, Title} from "./LoginPage/LoginPage.styles"
+import {Form, UserInput, Container, Button, Title} from "./Styles/Form.styles.jsx"
 
 function EditProduct() {
   const [name, setName] = useState("");
@@ -64,7 +64,8 @@ function EditProduct() {
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
       .then((response) => {
-        setImage(response.fileUrl);
+        console.log(response)
+        setImage(response.data.fileUrl);
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
   };

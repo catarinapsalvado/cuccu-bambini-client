@@ -3,7 +3,8 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext, useContext } from "../context/auth.context";
 import { ContainerProductDetails, ContainerAllProductDetails, ImageCard,  } from "./ProductDetails.styles"
-import { Button } from "./LoginPage/LoginPage.styles";
+import { Button } from "./Styles/Form.styles.jsx";
+
 
 function ProductDetails() {
   const [item, setItem] = useState([]);
@@ -44,7 +45,7 @@ function ProductDetails() {
           <p><b>Size: </b> {item.size}</p>
 
           <Link to="/cart">
-            <Button>Add to Cart </Button>
+            <Button>Add to Cart</Button>
           </Link>
          
           <Link to="/products-list">

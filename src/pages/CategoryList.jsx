@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams } from "react-router-dom"; 
+import ProductCard from '../components/ProductCard';
 
 function CategoryList() {
   const [products, setProducts] = useState([]);
@@ -26,32 +27,46 @@ const getCategory =()=>{
  
   return (
     <div>
-      <h3> {category.charAt(0).toUpperCase() + category.slice(1)} items</h3>
-      {products.length > 0 ? (
-         products.map((item) => {
-        return (
-          <div key={item._id} className="carditem"> 
-          <h3>{item.name}</h3>
-          <img src={item.image} alt="item" />
-            <p>Price: {item.price}</p>
-            <p>{item.size}</p>
-            <p>{item.brand}</p>
-            <Link to={`/product-details/${_id}`}>
-        <button>See item</button>
-      </Link>
-          </div>
-        );
-      }) 
-
-      ) : (<h2>'No products available'</h2>)}
-  
-     
+    <h3>{category.charAt(0).toUpperCase() + category.slice(1)} items</h3>
+       {products.length > 0 ? (
+        products.map((item) => {
+          return (
+            <ProductCard
+              key={item._id}
+              className="card"
+              item={item}
+            ></ProductCard> 
+          )
+        })) : (<h2>'No products available'</h2>)}
     </div>
   );
-  }
-
-
+      }
+          
+      
 
 export default CategoryList;
 
+
+{/* <div>
+<h3> {category.charAt(0).toUpperCase() + category.slice(1)} items</h3>
+{products.length > 0 ? (
+   products.map((item) => {
+  return (
+    <div key={item._id} className="carditem"> 
+    <h3>{item.name}</h3>
+    <img src={item.image} alt="item" />
+      <p>Price: {item.price}</p>
+      <p>{item.size}</p>
+      <p>{item.brand}</p>
+      <Link to={`/product-details/${_id}`}>
+  <button>See item</button>
+</Link>
+    </div>
+  );
+}) 
+
+) : (<h2>'No products available'</h2>)}
+
+
+</div> */}
 

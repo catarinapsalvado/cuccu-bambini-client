@@ -6,7 +6,10 @@ import ItemCart from "../components/ItemCart";
 function Cart() {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
+  const [isUpdated, setIsUpdated] = useState(true);
   const { productId } = useParams();
+
+  console.log(cart)
 
   const getCart = () => {
     const storedToken = localStorage.getItem("authToken");
@@ -15,35 +18,38 @@ function Cart() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
 
-      .then((response) => setCart(response.data))
-      .catch((error) => console.log(error));
-  };
+      .then((response) => {
 
-  const editCart = () => {
-    const storedToken = localStorage.getItem("authToken");
-    axios
-      .put(`${process.env.REACT_APP_API_URL}/api/cart/${productId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+        let totalCart = 0
+        response.data.product.forEach((item) => {
+          return totalCart += Number(item.price)
+        })
+        console.log(totalCart)
 
-      .then((response) => setCart(response.data))
+        setTotal(totalCart)
+        setCart(response.data)
+        setIsUpdated(true)
+      }
+        )
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
     getCart();
-  }, []);
+  }, [isUpdated]);
 
   return (
     <div>
       <h1>This is a Cart</h1>
 
       {cart &&
-        cart.map((item) => {
+        cart.product?.map((item) => {
           return (
-            <ItemCart key={item._id} className="cart" item={item}></ItemCart>
-          );
-        })}
+            <ItemCart key={item._id} className="cart" item={item} setIsUpdated={setIsUpdated}/>
+
+          );})}
+
+          <p>Total: {total}</p>
     </div>
   );
 }
