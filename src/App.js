@@ -1,10 +1,9 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage.jsx"
 import IsAnon from "./components/IsAnon";
-import Navbar from "./components/Navbar";
+import NavbarBoot from "./components/NavbarBoot";
 import Home from "./pages/Home";
 import ProductsList from "./pages/ProductsList";
 import CategoryList from "./pages/CategoryList";
@@ -16,7 +15,7 @@ import AddProduct from "./pages/AddProducts";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <NavbarBoot />
       {/* <Searchbar /> */}
 
       <Routes>

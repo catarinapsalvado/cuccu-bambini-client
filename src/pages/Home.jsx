@@ -2,80 +2,69 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Carousel from "react-bootstrap/Carousel";
+import { Carousel } from "react-carousel-minimal";
 
 function Home() {
   const [products, setproducts] = useState([]);
-  //search useState
 
-  /* const getAllProducts = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/auth/products-list`)
-      .then((response) => setSearch(response.data))
-      .catch((error) => console.log(error));
-  }; */
+  const data = [
+    {
+      image:
+        "https://images.unsplash.com/photo-1571211468362-33f20cb1982f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      caption: "San Francisco",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1586475915213-69971ee3c21a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
+      caption: "Scotland",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+      caption: "Darjeeling",
+    },
+  ];
+
+  const captionStyle = {
+    fontSize: "2em",
+    fontWeight: "bold",
+  };
+  const slideNumberStyle = {
+    fontSize: "20px",
+    fontWeight: "bold",
+  };
 
   return (
-    //search > 0 && display
-
-    //search < 1 && =>
-    <div className="homepage">
-      <h1>Welcome to Cuccu, Bambini!</h1>
-      <div className="homepage-links">
-        <Link to="/products-list">See all the products</Link>
-        <br />
-
-        <Link to="/category/clothings">Clothings</Link>
-
-        <br />
-        <Link to="/category/footwear">Footwear</Link>
-
-        <br />
-        <Link to="/category/baby-gear">Baby Gear</Link>
-      </div>
-
-      <div>
-        <Carousel>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="https://www.babycenter.com/ims/2019/10/Zia-16-Edit_4x3.jpg.pagespeed.ce.bn_SOQjB8V.jpg"
-              alt="First slide"
-            />
-            <Carousel.Caption>
-              <h3>Welcome</h3>
-              <p>Check all our baby products</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="http://www.babyfirst.com.br/assets/img/slide-1.jpg"
-              alt="Second slide"
-            />
-
-            <Carousel.Caption>
-              <h3>Reuse </h3>
-              <p>Contribute to a sustainable and circular economy</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="https://www.naturebaby.com.hk/media/wysiwyg/Wear_Desktop_Update650_x_900_px.jpg"
-              alt="Third slide"
-            />
-
-            <Carousel.Caption>
-              <h3>Third slide label</h3>
-              <p>Sell what you no longer need</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+    <div className="App">
+      <div style={{ textAlign: "center" }}>
+        <div
+          style={{
+            padding: "0 0px",
+          }}
+        >
+          <Carousel
+            data={data}
+            time={2000}
+            width="1000px"
+            height="700px"
+            captionStyle={captionStyle}
+            radius="10px"
+            captionPosition="bottom"
+            automatic={true}
+            dots={true}
+            pauseIconColor="white"
+            pauseIconSize="40px"
+            slideBackgroundColor="darkgrey"
+            slideImageFit="cover"
+            style={{
+              textAlign: "center",
+              maxWidth: "1000px",
+              maxHeight: "700px",
+            }}
+          />
+        </div>
       </div>
     </div>
   );
 }
-
 export default Home;
