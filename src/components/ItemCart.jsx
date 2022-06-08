@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {Button} from "../pages/Styles/Form.styles"
 
 function ItemCart(props) {
   const { image, name, price, _id } = props.item;
@@ -21,11 +22,12 @@ function ItemCart(props) {
     }
 
   return (
+    
     <div className="img-container">
       <img className="cardImage" src={image} alt="image_product" />
       <h3 className="name">{name}</h3>
       <p className="price">{price}</p>
-      <button onClick={() => removeFromCart(_id)}>Remove</button>
+      <Button onClick={() => removeFromCart(_id)}>Remove</Button>
 
     </div>
   );

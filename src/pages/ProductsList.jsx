@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 import Searchbar from "../components/Searchbar";
 import AddProduct from "./AddProducts";
-
+import { Card, CardGroup } from "react-bootstrap";
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
@@ -61,14 +61,19 @@ function ProductsList() {
       {products && cart &&
         products.map((item) => {
           return (
+            <CardGroup>
+            <Card>
+            <Card.Body>
             <ProductCard
               key={item._id}
-              className="cardd"
+              className="card"
               item={item}
               cart={cart}
               isUpdated={isUpdated}
               setIsUpdated={setIsUpdated}
             ></ProductCard>
+            </Card.Body>
+            </Card></CardGroup>
           );
         })}
     </div>

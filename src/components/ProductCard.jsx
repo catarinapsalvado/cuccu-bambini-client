@@ -60,9 +60,9 @@ function ProductCard(props) {
   
 
   return (
-    <Cardtag>
+    
     <div className="img-container">
-      <img className="cardImage" src={image} alt="image_product" />
+      <img className="cardImage" width='300vw' src={image} alt="image_product" />
       <h3 className="name">{name}</h3>
       <p className="price">{price} €</p>
       <Link to={`/product-details/${_id}`}>
@@ -70,7 +70,7 @@ function ProductCard(props) {
       </Link>
       {isInCart ? <Button onClick={() => removeFromCart(_id)}>Remove from Cart</Button> : <Button onClick={() => addToCart(_id)}>Add to Cart</Button>}
 
-    </div></Cardtag>
+    </div>
   );
 }
 
