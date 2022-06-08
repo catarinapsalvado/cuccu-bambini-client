@@ -9,8 +9,6 @@ function Cart() {
   const [isUpdated, setIsUpdated] = useState(true);
   const { productId } = useParams();
 
-  console.log(cart)
-
   const getCart = () => {
     const storedToken = localStorage.getItem("authToken");
     axios
@@ -24,8 +22,6 @@ function Cart() {
         response.data.product.forEach((item) => {
           return totalCart += Number(item.price)
         })
-        console.log(totalCart)
-
         setTotal(totalCart)
         setCart(response.data)
         setIsUpdated(true)

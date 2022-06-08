@@ -8,12 +8,9 @@ import AddProduct from "./AddProducts";
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
+  const [cart, setCart] = useState([])
   const [searchProducts, setSearchProducts] = useState([]);
-
-  const addNewProduct = (newProduct) => {
-    const updatedProducts = [...products, newProduct];
-    setProducts(updatedProducts);
-  };
+  const [isUpdated, setIsUpdated] = useState(false);
 
   /* const storedToken = localStorage.getItem("authToken");  */
   // Send the token through the request "Authorization" Headers
@@ -27,6 +24,21 @@ function ProductsList() {
       .catch((error) => console.log(error));
   };
 
+  const getCart = () => {
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/cart`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+
+      .then((response) => {
+        setCart(response.data)
+        setIsUpdated(true)
+      }
+        )
+      .catch((error) => console.log(error));
+  };
+
   const searchFilter = (search) => {
     let filteredProducts = products.filter((item) =>
       item.name.toLowerCase().includes(search.toLowerCase())
@@ -37,7 +49,8 @@ function ProductsList() {
 
   useEffect(() => {
     getProducts();
-  }, []);
+    getCart();
+  }, [isUpdated]);
 
   return (
     <div>
@@ -45,13 +58,16 @@ function ProductsList() {
 
       <Searchbar searchFilter={searchFilter} />
 
-      {products &&
+      {products && cart &&
         products.map((item) => {
           return (
             <ProductCard
               key={item._id}
               className="card"
               item={item}
+              cart={cart}
+              isUpdated={isUpdated}
+              setIsUpdated={setIsUpdated}
             ></ProductCard>
           );
         })}
