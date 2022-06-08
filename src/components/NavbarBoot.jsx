@@ -2,12 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react"; // <== IMPORT
 import { AuthContext } from "../context/auth.context"; // <== IMPORT
 import Logo from "../assets/3-removebg-preview.png";
-import {
-  Navbar,
-  Nav,
-  NavLink,
- 
-} from "react-bootstrap";
+import { Navbar, Nav, NavLink } from "react-bootstrap";
 
 function NavbarBoot() {
   const { isLoggedIn, user, logoutUser } = useContext(AuthContext); // <== ADD
@@ -15,7 +10,7 @@ function NavbarBoot() {
   //  Update the rendering logic to display different content
   //  depending on the user being logged in or not
   return (
-    <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="sm" bg="light" variant="light">
       <Navbar.Toggle
         aria-controls="navbarScroll"
         data-bs-toggle="collapse"
@@ -23,9 +18,10 @@ function NavbarBoot() {
       />
       <Navbar.Collapse id="navbarScroll">
         <Nav>
-          <NavLink eventKey="1" as={Link} to="/">
-            Home
-          </NavLink>
+          <Navbar.Brand as={Link} to="/">
+            <img src={Logo} alt="Logo" height="30px" />{" "}
+          </Navbar.Brand>
+
           <NavLink eventKey="4" as={Link} to="/signup">
             Signup
           </NavLink>
