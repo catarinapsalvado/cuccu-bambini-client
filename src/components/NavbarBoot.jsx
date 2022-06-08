@@ -5,6 +5,7 @@ import Logo from "../assets/3-removebg-preview.png";
 import {
   Navbar,
   Nav,
+  NavLink,
   Container,
   /*  Offcanvas,
   Form,
@@ -19,55 +20,63 @@ function NavbarBoot() {
   //  Update the rendering logic to display different content
   //  depending on the user being logged in or not
   return (
-    <Navbar className="myNav" expand="lg">
-      <Container>
-        <Navbar.Brand as={Link} to="/">
-          <img src={Logo} alt="Logo" height="80" />
-        </Navbar.Brand>
+    <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark">
+      <Navbar.Toggle
+        aria-controls="navbarScroll"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+      />
+      <Navbar.Collapse id="navbarScroll">
+        <Nav>
+          <NavLink eventKey="1" as={Link} to="/">
+            Home
+          </NavLink>
+          <NavLink eventKey="4" as={Link} to="/signup">
+            Signup
+          </NavLink>
+          <NavLink eventKey="5" as={Link} to="/login">
+            Login
+          </NavLink>
+          <NavLink eventKey="2" as={Link} to="/products-list">
+            Items
+          </NavLink>
 
-        {isLoggedIn && (
-          <>
-            <Nav.Link as={Link} to="/products-list">
-              All the products
-            </Nav.Link>
-            {user && user.role === "admin" && (
-              <Nav.Link as={Link} to="/create-product">
-                {" "}
-                Create products{" "}
-              </Nav.Link>
-            )}
-            <Nav.Link as={Link} to="/" onClick={logoutUser}>
-              Logout
-            </Nav.Link>
-            <span>{user && user.name}</span>
-          </>
-        )}
+          {isLoggedIn && (
+            <>
+              {user && user.role === "admin" && (
+                <>
+                  <NavLink eventKey="6" as={Link} to="/create-product">
+                    Create a product
+                  </NavLink>
+                  <NavLink eventKey="3" as={Link} to="/cart">
+                    Cart
+                  </NavLink>
 
-        {!isLoggedIn && (
-          <>
-            {/* <Nav.Link as={Link} to="/category/clothings">
-              {" "}
-              Clothings{" "}
-            </Nav.Link>
-            <Nav.Link as={Link} to="/category/footwear">
-              {" "}
-              Footwear{" "}
-            </Nav.Link>
-            <Nav.Link as={Link} to="/category/baby-gear">
-              {" "}
-              Baby gear{" "}
-            </Nav.Link> */}
-            <Nav.Link as={Link} to="/signup">
-              {" "}
-              Sign Up
-            </Nav.Link>
-            <Nav.Link as={Link} to="/login">
-              {" "}
-              Login{" "}
-            </Nav.Link>
-          </>
-        )}
-      </Container>
+                  <NavLink eventKey="7" as={Link} to="/" onClick={logoutUser}>
+                    Logout
+                  </NavLink>
+                </>
+              )}
+            </>
+          )}
+
+          {isLoggedIn && (
+            <>
+              {user && user.role === "user" && (
+                <>
+                  <NavLink eventKey="3" as={Link} to="/cart">
+                    Cart
+                  </NavLink>
+
+                  <NavLink eventKey="7" as={Link} to="/" onClick={logoutUser}>
+                    Logout
+                  </NavLink>
+                </>
+              )}
+            </>
+          )}
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }
@@ -147,3 +156,52 @@ export default NavbarBoot;
   </> 
  export default NavbarBoot;
  */
+
+/*
+ {isLoggedIn && (
+  <>
+    <Nav.Link as={Link} to="/products-list">
+      All the products
+    </Nav.Link>
+    {user && user.role === "admin" && (
+      <Nav.Link as={Link} to="/create-product">
+        {" "}
+        Create products{" "}
+      </Nav.Link>
+    )}
+    <Nav.Link as={Link} to="/" onClick={logoutUser}>
+      Logout
+    </Nav.Link>
+    <span>{user && user.name}</span>
+  </>
+)}
+
+{!isLoggedIn && (
+  <>
+    { <Nav.Link as={Link} to="/category/clothings">
+      {" "}
+      Clothings{" "}
+    </Nav.Link>
+    <Nav.Link as={Link} to="/category/footwear">
+      {" "}
+      Footwear{" "}
+    </Nav.Link>
+    <Nav.Link as={Link} to="/category/baby-gear">
+      {" "}
+      Baby gear{" "}
+    </Nav.Link> 
+    <Nav.Link as={Link} to="/signup">
+      {" "}
+      Sign Up
+    </Nav.Link>
+    <Nav.Link as={Link} to="/login">
+      {" "}
+      Login{" "}
+    </Nav.Link>
+  </>
+)}
+</Container>
+</Navbar>
+);
+}
+*/
