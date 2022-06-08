@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Title, Form, UserInput, Button,  Container } from './Styles/Form.styles.jsx'
 import styled from "styled-components";
 
@@ -82,26 +81,18 @@ if(isUploading) return
   const navigate = useNavigate();
 
   return (
-    <div>
-      <Title>Add Product</Title>
-      <form onSubmit={handleSubmit}>
+    <div className="AddProducts">  
+    <Title>Add Product</Title>
+    <Container>
+      <Form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
-        <input
-          type="text"
+        <UserInput type="text"
           name="name"
           value={name}
-          onChange={(e) => handleName(e)}
-        />
+          onChange={handleName} />
+        
 
-        <label htmlFor="price">Price</label>
-        <input
-          type="text"
-          name="price"
-          value={price}
-          onChange={handlePrice}
-        />
-
-        <label htmlFor="description">Description</label>
+<label htmlFor="description">Description</label>
         <textarea
           name="description"
           cols="30"
@@ -110,8 +101,24 @@ if(isUploading) return
           onChange={handleDescription}
         ></textarea>
 
+
+
+        <label htmlFor="price">Price</label>
+        <UserInput
+          type="text"
+          name="price"
+          value={price}
+          onChange={handlePrice}
+        />
+
+    <label htmlFor="brand">Brand</label>
+        <UserInput type="text" name="name" value={brand} onChange={handleBrand} />
+
+        <label htmlFor="size">Size</label>
+        <UserInput type="text" name="size" value={size} onChange={handleSize} />
+
         <label htmlFor="category">Category</label>
-        <input
+        <UserInput
           type="select"
           name="category"
           value={category}
@@ -126,17 +133,12 @@ if(isUploading) return
           onChange={handleAvailable}
         /> */}
 
-        <label htmlFor="brand">Brand</label>
-        <input type="text" name="brand" value={brand} onChange={handleBrand} />
-
         <label htmlFor="image">Image:</label>
-        <input type="file" onChange={(e) => handleFileUpload(e)} />
+        <UserInput type="file" onChange={(e) => handleFileUpload(e)} />
 
-        <label htmlFor="size">Size</label>
-        <input type="text" name="size" value={size} onChange={handleSize} />
-
-        <Button type="submit">Create Product</Button>
-      </form>
+        <Button type="submit">Create</Button>
+      </Form>
+      </Container>
     </div>
   );
 }

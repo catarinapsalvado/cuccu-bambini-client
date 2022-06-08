@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Carousel } from "react-carousel-minimal";
+import { Card, CardGroup } from "react-bootstrap";
+import imagecard1 from "../assets/valeria-zoncoll-AVGc87j_vNA-unsplash.jpg";
+import imagecard2 from "../assets/valeria-zoncoll-AVGc87j_vNA-unsplash.jpg";
+import imagecard3 from "../assets/valeria-zoncoll-AVGc87j_vNA-unsplash.jpg";
 
 function Home() {
   const [products, setproducts] = useState([]);
@@ -45,8 +49,8 @@ function Home() {
           <Carousel
             data={data}
             time={2000}
-            width="1000px"
-            height="700px"
+            width="2000px"
+            height="400px"
             captionStyle={captionStyle}
             radius="10px"
             captionPosition="bottom"
@@ -58,13 +62,59 @@ function Home() {
             slideImageFit="cover"
             style={{
               textAlign: "center",
-              maxWidth: "1000px",
-              maxHeight: "700px",
+              maxWidth: "2000px",
+              maxHeight: "400px",
             }}
           />
+
+          <CardGroup>
+            <Card>
+              <Card.Link as={Link} to="/category/clothings">
+                <Card.Img variant="top" src={imagecard1} alt="" />
+              </Card.Link>
+
+              <Card.Body>
+                <Card.Title>Clothing</Card.Title>
+                <Card.Text>
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card>
+              <Card.Link as={Link} to="/category/footwear">
+                <Card.Img variant="top" src={imagecard2} alt="" />
+              </Card.Link>
+
+              <Card.Body>
+                <Card.Title>Footwear</Card.Title>
+                <Card.Text>
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+            <Card>
+              <Card.Link as={Link} to="/category/baby-gear">
+                <Card.Img variant="top" src={imagecard3} alt="" />
+              </Card.Link>
+
+              <Card.Body>
+                <Card.Title>Baby gear</Card.Title>
+                <Card.Text>
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </CardGroup>
         </div>
       </div>
     </div>
   );
 }
+
 export default Home;
