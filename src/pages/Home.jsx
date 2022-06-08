@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Carousel } from "react-carousel-minimal";
 import { Card, CardGroup } from "react-bootstrap";
-import imagecard1 from "../assets/valeria-zoncoll-AVGc87j_vNA-unsplash.jpg";
-import imagecard2 from "../assets/valeria-zoncoll-AVGc87j_vNA-unsplash.jpg";
-import imagecard3 from "../assets/valeria-zoncoll-AVGc87j_vNA-unsplash.jpg";
+import imagecard1 from "../assets/R.png";
+import imagecard2 from "../assets/omar-lopez-vTknj2OxDVg-unsplash.jpg";
+import imagecard3 from "../assets/rent_baby_gear_equipment-1536x1253.webp";
 
 function Home() {
   const [products, setproducts] = useState([]);
@@ -15,17 +15,17 @@ function Home() {
     {
       image:
         "https://images.unsplash.com/photo-1571211468362-33f20cb1982f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-      caption: "San Francisco",
+      caption: "",
     },
     {
       image:
         "https://images.unsplash.com/photo-1586475915213-69971ee3c21a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80",
-      caption: "Scotland",
+      caption: "",
     },
     {
       image:
         "https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      caption: "Darjeeling",
+      caption: "",
     },
   ];
 
@@ -39,6 +39,7 @@ function Home() {
   };
 
   return (
+  
     <div className="App">
       <div style={{ textAlign: "center" }}>
         <div
@@ -53,6 +54,7 @@ function Home() {
             height="400px"
             captionStyle={captionStyle}
             radius="10px"
+            margin-bottom="50px"
             captionPosition="bottom"
             automatic={true}
             dots={true}
@@ -66,11 +68,21 @@ function Home() {
               maxHeight: "400px",
             }}
           />
+          <br></br>
+          <br></br>
+          <br></br>
 
           <CardGroup>
             <Card>
               <Card.Link as={Link} to="/category/clothings">
-                <Card.Img variant="top" src={imagecard1} alt="" />
+                <Card.Img
+                  variant="top"
+                  src={imagecard1}
+                  alt=""
+                  height="200px"
+                  weight="200px"
+                  padding="20px"
+                />
               </Card.Link>
 
               <Card.Body>
@@ -84,7 +96,14 @@ function Home() {
             </Card>
             <Card>
               <Card.Link as={Link} to="/category/footwear">
-                <Card.Img variant="top" src={imagecard2} alt="" />
+                <Card.Img
+                  variant="top"
+                  src={imagecard2}
+                  alt=""
+                  height="200px"
+                  weight="200px"
+                  padding="20px"
+                />
               </Card.Link>
 
               <Card.Body>
@@ -98,7 +117,14 @@ function Home() {
             </Card>
             <Card>
               <Card.Link as={Link} to="/category/baby-gear">
-                <Card.Img variant="top" src={imagecard3} alt="" />
+                <Card.Img
+                  variant="top"
+                  src={imagecard3}
+                  alt=""
+                  height="200px"
+                  weight="200px"
+                  padding="20px"
+                />
               </Card.Link>
 
               <Card.Body>
@@ -114,6 +140,7 @@ function Home() {
         </div>
       </div>
     </div>
+   
   );
 }
 
