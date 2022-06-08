@@ -5,8 +5,6 @@ import ProductCard from "../components/ProductCard";
 import Searchbar from "../components/Searchbar";
 import AddProduct from "./AddProducts";
 
-/* import { Grid } from "@mui/material";
- */
 
 function ProductsList() {
   const [products, setProducts] = useState([]);

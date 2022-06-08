@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import styled from "styled-components";
+import {Form, UserInput, Container, Button, Title} from "./Styles/Form.styles.jsx"
 
 function EditProduct() {
   const [name, setName] = useState("");
@@ -9,7 +11,7 @@ function EditProduct() {
   const [image, setImage] = useState("");
   const [brand, setBrand] = useState("");
   const [category, setCategory] = useState("");
-  const [price, setPrice] = useState(1);
+  const [price, setPrice] = useState("");
   const [available, setAvailable] = useState("");
 
   const { productId } = useParams();
@@ -62,7 +64,8 @@ function EditProduct() {
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
       .then((response) => {
-        setImage(response.fileUrl);
+        console.log(response)
+        setImage(response.data.fileUrl);
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
@@ -100,11 +103,13 @@ function EditProduct() {
   };
 
   return (
-    <div className="EditProducts">
-      <h3>Edit the Product</h3>
-      <form onSubmit={handleSubmit}>
+  
+    <div className="EditProducts">  
+      <Title>Edit Product</Title>
+      <Container>
+      <Form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        <UserInput type="text" name="name" value={name} onChange={handleName} />
 
         <label htmlFor="description">Description</label>
         <textarea
@@ -116,21 +121,21 @@ function EditProduct() {
         ></textarea>
 
         <label htmlFor="price">Price</label>
-        <input
-          type="number"
+        <UserInput
+          type="text"
           name="price"
           value={price}
           onChange={handlePrice}
         />
 
         <label htmlFor="brand">Brand</label>
-        <input type="text" name="name" value={brand} onChange={handleBrand} />
+        <UserInput type="text" name="name" value={brand} onChange={handleBrand} />
 
         <label htmlFor="size">Size</label>
-        <input type="text" name="size" value={size} onChange={handleSize} />
+        <UserInput type="text" name="size" value={size} onChange={handleSize} />
 
         <label htmlFor="category">Category</label>
-        <input
+        <UserInput
           type="text"
           name="category"
           value={category}
@@ -138,14 +143,14 @@ function EditProduct() {
         />
 
         <label htmlFor="available">Available</label>
-        <input
+        <UserInput
           type="text"
           name="available"
           value={available}
           onChange={handleAvailable}
         />
         <label htmlFor="image">Image:</label>
-        <input type="file" onChange={(e) => handleFileUpload(e)} />
+        <UserInput type="file" onChange={(e) => handleFileUpload(e)} />
 
         {/*    <label htmlFor="image">
           Image:
@@ -156,11 +161,14 @@ function EditProduct() {
             onChange={handleImage}
             class="form-control-file"
           />
-        </label> */}
+        </label> */} 
+     
+        <Button type="submit">Edit</Button>
+      
+      <Button onClick={deleteProduct}>Delete</Button>
+      </Form>
 
-        <button type="submit">Edit</button>
-      </form>
-      <button onClick={deleteProduct}>Delete</button>
+      </Container>
     </div>
   );
 }

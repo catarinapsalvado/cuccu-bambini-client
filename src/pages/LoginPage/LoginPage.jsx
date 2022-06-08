@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import axios from "axios";
- import { Title, Form, UserInput, Button,  Container } from './LoginPage.styles' 
+ import { Title, Form, UserInput, Button,  Container } from '../Styles/Form.styles' 
 
 
 

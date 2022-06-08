@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext, useContext } from "../context/auth.context";
-import { ContainerProductDetails, ContainerAllProductDetails } from "./ProductDetails.styles"
-import { Button } from "./LoginPage/LoginPage.styles";
+import { ContainerProductDetails, ContainerAllProductDetails, ImageCard,  } from "./ProductDetails.styles"
+import { Button } from "./Styles/Form.styles.jsx";
+
 
 function ProductDetails() {
   const [item, setItem] = useState([]);
@@ -28,35 +29,44 @@ function ProductDetails() {
   }, []);
 
   return (
-    <ContainerAllProductDetails>
+
+  
     <div className="itemDetails">
     
       {item && (
         <>
-        <img src={item.image}/>
+        <ContainerAllProductDetails>
+        <ImageCard src={item.image}/>
         <ContainerProductDetails>
           <h1>{item.name}</h1>
-          <p>{item.description}</p>
-          <p>{item.price}</p>
-          <p>{item.brand}</p>
-          <p>{item.size}</p>
-          </ContainerProductDetails>
-          <Link to="/products-list">
-            <Button>Back to Products List</Button>
-          </Link>
+          <p><b>Description: </b>{item.description}</p>
+          <p><b>Price: </b>: {item.price}€</p>
+          <p><b>Brand </b> {item.brand}</p>
+          <p><b>Size: </b> {item.size}</p>
 
+          <Link to="/cart">
+            <Button>Add to Cart</Button>
+          </Link>
+         
+          <Link to="/products-list">
+            <Button>Back </Button>
+          </Link>
           {user && user.role === "admin" && (
             <>
               <Link to={`/product-details/${item._id}/edit`}>
-                <Button>Edit Products</Button>
+                <Button>Edit Product</Button>
               </Link>
             </>
           )}
+         </ContainerProductDetails>
+          
+          </ContainerAllProductDetails>
         </>
       )}
       
     </div>
-    </ContainerAllProductDetails>
+ 
+ 
   );
 }
 
