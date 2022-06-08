@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Carousel } from "react-carousel-minimal";
+import { Card, CardGroup } from "react-bootstrap";
 
 function Home() {
   const [products, setproducts] = useState([]);
@@ -67,4 +68,5 @@ function Home() {
     </div>
   );
 }
+
 export default Home;
