@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Title, Form, UserInput, Button,  Container } from './Styles/Form.styles.jsx'
+import {
+  Title,
+  Form,
+  UserInput,
+  Button,
+  Container,
+} from "./Styles/Form.styles.jsx";
 import styled from "styled-components";
-
-
-
 
 function AddProduct(props) {
   const { addNewProduct } = props;
@@ -22,7 +25,7 @@ function AddProduct(props) {
   //Handler functions
 
   const handleFileUpload = (e) => {
-    setIsUploading(true)
+    setIsUploading(true);
     const uploadData = new FormData();
 
     uploadData.append("image", e.target.files[0]);
@@ -31,7 +34,7 @@ function AddProduct(props) {
       .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
       .then((response) => {
         setImage(response.data.fileUrl);
-        setIsUploading(false)
+        setIsUploading(false);
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
   };
@@ -39,8 +42,7 @@ function AddProduct(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-if(isUploading) return
-
+    if (isUploading) return;
 
     const body = {
       name,
@@ -81,50 +83,71 @@ if(isUploading) return
   const navigate = useNavigate();
 
   return (
-    <div className="AddProducts">  
-    <Title>Add Product</Title>
-    <Container>
-      <Form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <UserInput type="text"
-          name="name"
-          value={name}
-          onChange={handleName} />
-        
+    <div className="AddProducts">
+      <Title>Add Product</Title>
+      <Container>
+        <Form onSubmit={handleSubmit}>
+          <label htmlFor="name">Name</label>
+          <UserInput
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleName}
+          />
 
-<label htmlFor="description">Description</label>
-        <textarea
-          name="description"
-          cols="30"
-          rows="10"
-          value={description}
-          onChange={handleDescription}
-        ></textarea>
+          <label htmlFor="description">Description</label>
+          <textarea
+            name="description"
+            cols="30"
+            rows="10"
+            value={description}
+            onChange={handleDescription}
+          ></textarea>
 
+          <label htmlFor="price">Price</label>
+          <UserInput
+            type="text"
+            name="price"
+            value={price}
+            onChange={handlePrice}
+          />
 
+          <label htmlFor="brand">Brand</label>
+          <UserInput
+            type="text"
+            name="name"
+            value={brand}
+            onChange={handleBrand}
+          />
 
-        <label htmlFor="price">Price</label>
-        <UserInput
-          type="text"
-          name="price"
-          value={price}
-          onChange={handlePrice}
-        />
+          <label htmlFor="size">Size</label>
+          <UserInput
+            type="text"
+            name="size"
+            value={size}
+            onChange={handleSize}
+          />
+          {/* 
+          <label htmlFor="category">Category</label>
+          <UserInput
+            type="select"
+            name="category"
+            option
+            value={category}
+            onChange={handleCategory}
+          /> */}
 
-    <label htmlFor="brand">Brand</label>
-        <UserInput type="text" name="name" value={brand} onChange={handleBrand} />
+          <select
+            category={category}
+            value={category}
+            onChange={handleCategory}
+          >
+            <option>Clothing</option>
+            <option>Footwear</option>
+            <option>Baby gear</option>
+          </select>
 
-        <label htmlFor="size">Size</label>
-        <UserInput type="text" name="size" value={size} onChange={handleSize} />
-
-        <label htmlFor="category">Category</label>
-        <UserInput
-          type="select"
-          name="category"
-          value={category}
-          onChange={handleCategory}
-        />
-{/* 
+          {/* 
         <label htmlFor="available">Available</label>
         <input
           type="select"
@@ -133,11 +156,11 @@ if(isUploading) return
           onChange={handleAvailable}
         /> */}
 
-        <label htmlFor="image">Image:</label>
-        <UserInput type="file" onChange={(e) => handleFileUpload(e)} />
+          <label htmlFor="image">Image:</label>
+          <UserInput type="file" onChange={(e) => handleFileUpload(e)} />
 
-        <Button type="submit">Create</Button>
-      </Form>
+          <Button type="submit">Create</Button>
+        </Form>
       </Container>
     </div>
   );

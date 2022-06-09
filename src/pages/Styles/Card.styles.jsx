@@ -9,7 +9,7 @@ export const Cardtag = styled.div`
   justify-content: space-between;
   border-radius: 15px;
   border-radius: 0.3rem;
-/*   border: 1px solid black; */
+  /*   border: 1px solid black; */
   .title {
     text-align: center;
   }

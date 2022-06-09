@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import ItemCart from "../components/ItemCart";
-import {Button, Title} from "./Styles/Form.styles"
+import { Button, Title } from "./Styles/Form.styles";
 
 function Cart() {
   const [cart, setCart] = useState([]);
@@ -18,16 +18,14 @@ function Cart() {
       })
 
       .then((response) => {
-
-        let totalCart = 0
+        let totalCart = 0;
         response.data.product.forEach((item) => {
-          return totalCart += Number(item.price)
-        })
-        setTotal(totalCart)
-        setCart(response.data)
-        setIsUpdated(true)
-      }
-        )
+          return (totalCart += Number(item.price));
+        });
+        setTotal(totalCart);
+        setCart(response.data);
+        setIsUpdated(true);
+      })
       .catch((error) => console.log(error));
   };
 
@@ -42,11 +40,16 @@ function Cart() {
       {cart &&
         cart.product?.map((item) => {
           return (
-            <ItemCart key={item._id} className="cart" item={item} setIsUpdated={setIsUpdated}/>
+            <ItemCart
+              key={item._id}
+              className="cart"
+              item={item}
+              setIsUpdated={setIsUpdated}
+            />
+          );
+        })}
 
-          );})}
-
-          <Title>Total: {total}</Title>
+      <Title>Total: {total}</Title>
     </div>
   );
 }
