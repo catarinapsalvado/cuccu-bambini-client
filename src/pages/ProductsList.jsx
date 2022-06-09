@@ -5,6 +5,8 @@ import ProductCard from "../components/ProductCard";
 import Searchbar from "../components/Searchbar";
 import AddProduct from "./AddProducts";
 import { Card, CardGroup } from "react-bootstrap";
+import { Cardtag } from "./Styles/Card.styles";
+import {Title} from "./Styles/Form.styles"
 
 function ProductsList() {
   const [products, setProducts] = useState([]);
@@ -39,13 +41,13 @@ function ProductsList() {
       .catch((error) => console.log(error));
   };
 
-  const searchFilter = (search) => {
+  /* const searchFilter = (search) => {
     let filteredProducts = products.filter((item) =>
       item.name.toLowerCase().includes(search.toLowerCase())
     );
     setSearchProducts(filteredProducts);
     setProducts(filteredProducts);
-  };
+  }; */
 
   useEffect(() => {
     getProducts();
@@ -54,16 +56,15 @@ function ProductsList() {
 
   return (
     <div>
-      <h3>List of products</h3>
+      <Title>Our products</Title>
 
-      <Searchbar searchFilter={searchFilter} />
+      {/* <Searchbar searchFilter={searchFilter} /> */}
 
       {products && cart &&
         products.map((item) => {
           return (
-            <CardGroup>
-            <Card>
-            <Card.Body>
+            
+            <Cardtag>
             <ProductCard
               key={item._id}
               className="card"
@@ -72,8 +73,7 @@ function ProductsList() {
               isUpdated={isUpdated}
               setIsUpdated={setIsUpdated}
             ></ProductCard>
-            </Card.Body>
-            </Card></CardGroup>
+            </Cardtag>
           );
         })}
     </div>

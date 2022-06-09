@@ -5,6 +5,7 @@ import { Cardtag } from  "../pages/Styles/Card.styles.jsx"
 import axios from "axios";
 
 
+
 function ProductCard(props) {
   const [isInCart, setIsInCart] = useState(false)
   const { image, name, price, _id } = props.item;
@@ -64,7 +65,7 @@ function ProductCard(props) {
     <div className="img-container">
       <img className="cardImage" width='300vw' src={image} alt="image_product" />
       <h3 className="name">{name}</h3>
-      <p className="price">{price} €</p>
+      <p className="price"> Price: {price} €</p>
       <Link to={`/product-details/${_id}`}>
         <Button>See Item</Button>
       </Link>

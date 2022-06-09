@@ -39,18 +39,18 @@ function ProductDetails() {
         <ImageCard src={item.image}/>
         <ContainerProductDetails>
           <h1>{item.name}</h1>
-          <p><b>Description: </b>{item.description}</p>
-          <p><b>Price: </b>: {item.price}€</p>
-          <p><b>Brand </b> {item.brand}</p>
+          <p class="description"><b>Description: </b>{item.description}</p>
+          <p><b>Price: </b> {item.price}€</p>
+          <p><b>Brand: </b> {item.brand}</p>
           <p><b>Size: </b> {item.size}</p>
-
+        <div class='btn-product-detail'>
           <Link to="/cart">
             <Button>Add to Cart</Button>
           </Link>
          
           <Link to="/products-list">
-            <Button>Back </Button>
-          </Link>
+            <Button class='btn-back'>Back </Button>
+          </Link></div>
           {user && user.role === "admin" && (
             <>
               <Link to={`/product-details/${item._id}/edit`}>

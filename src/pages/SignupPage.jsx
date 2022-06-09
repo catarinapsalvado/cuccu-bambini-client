@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Title, Form, UserInput, Button, Container } from './Styles/Form.styles.jsx'
+import { Title, Form, UserInput, ButtonLogin, Container } from './Styles/Form.styles.jsx'
 
 function SignupPage() {
   const [password, setPassword] = useState("");
@@ -55,7 +55,7 @@ function SignupPage() {
         <label htmlFor="email">E-mail</label>
         <UserInput type="text" name="email" value={email} onChange={handleEmail} />
 
-        <Button type="submit">SIGN UP</Button>
+        <ButtonLogin type="submit">SIGN UP</ButtonLogin>
       </Form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}

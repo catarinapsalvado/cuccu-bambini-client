@@ -20,9 +20,10 @@ export const Form = styled.form`
 `;
 
 export const Title = styled.h3`
-  color: #444;
-  font-size: 40px;
+  color: #BB8FCE;
+  font-size: 50px;
   padding: 16px;
+  font-weight:830;
 `;
 
 export const UserInput = styled.input`
@@ -43,7 +44,7 @@ export const UserInput = styled.input`
   }
 `;
 
-export const Button = styled.button`
+export const ButtonLogin = styled.button`
   
   min-width:10vw;
   margin: 2%;
@@ -56,9 +57,38 @@ export const Button = styled.button`
   font-size: 20px;
   border: 0;
   color: #fff;
-  background-color:	#93b9dc;
+  background-color: #D2B4DE ;
   margin-top: 5px;
   margin-bottom: 16px;
   cursor: pointer;
+  :hover {
+      background-color:#BB8FCE;
+      transition: 0.7s;
+  }
+`;
+
+
+export const Button = styled.button`
+  
+  min-width: 10vw;
+  min-height: 7vh;
+  margin: 2%;
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  border: 0;
+  color: #fff;
+  background-color:	#D2B4DE;
+  margin-top: 5px;
+  margin-bottom: 16px;
+  cursor: pointer;
+
+  :hover {
+      background-color:#BB8FCE;
+      transition: 0.7s;
+  }
 `;
 

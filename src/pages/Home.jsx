@@ -50,7 +50,7 @@ function Home() {
           <Carousel
             data={data}
             time={2000}
-            width="2000px"
+            width="2000vw"
             height="400px"
             captionStyle={captionStyle}
             radius="10px"
@@ -79,8 +79,8 @@ function Home() {
                   variant="top"
                   src={imagecard1}
                   alt=""
-                  height="200px"
-                  weight="200px"
+                  height="350px"
+                  weight="25vw"
                   padding="20px"
                 />
               </Card.Link>
@@ -94,14 +94,15 @@ function Home() {
                 </Card.Text>
               </Card.Body>
             </Card>
+            
             <Card>
               <Card.Link as={Link} to="/category/footwear">
                 <Card.Img
                   variant="top"
                   src={imagecard2}
                   alt=""
-                  height="200px"
-                  weight="200px"
+                  height="350px"
+                  weight="25vw"
                   padding="20px"
                 />
               </Card.Link>
@@ -121,8 +122,8 @@ function Home() {
                   variant="top"
                   src={imagecard3}
                   alt=""
-                  height="200px"
-                  weight="200px"
+                  height="350px"
+                  weight="25vw"
                   padding="20px"
                 />
               </Card.Link>

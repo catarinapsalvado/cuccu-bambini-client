@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import axios from "axios";
- import { Title, Form, UserInput, Button,  Container } from '../Styles/Form.styles' 
+ import { Title, Form, UserInput, ButtonLogin,  Container } from '../Styles/Form.styles' 
 
 
 
@@ -58,7 +58,7 @@ function LoginPage() {
           onChange={handlePassword}
         />
 
-        <Button type="submit">LOGIN</Button>
+        <ButtonLogin type="submit">LOGIN</ButtonLogin>
       </Form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
