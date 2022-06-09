@@ -24,6 +24,7 @@ export const Title = styled.h3`
   font-size: 50px;
   padding: 16px;
   font-weight:830;
+
 `;
 
 export const UserInput = styled.input`
@@ -89,6 +90,35 @@ export const Button = styled.button`
   :hover {
       background-color:#BB8FCE;
       transition: 0.7s;
+  }
+`;
+
+
+export const ButtonDetails = styled.button`
+  
+  min-width: 30vw;
+  min-height: 7vh;
+  margin: 2%;
+  align-content: center;
+  text-align: center;
+  align-items: center;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+  border: 0;
+  color: #fff;
+  background-color:	#D2B4DE;
+  margin-top: 5px;
+  margin-bottom: 16px;
+  cursor: pointer;
+
+  :hover {
+      background-color:#BB8FCE;
+      transition: 0.7s;
+  }
+
+  @media only screen and (min-width:600px ){
+    min-width: 15vw;
   }
 `;
 

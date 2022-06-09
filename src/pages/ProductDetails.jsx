@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import { AuthContext, useContext } from "../context/auth.context";
-import { ContainerProductDetails, ContainerAllProductDetails, ImageCard,  } from "./Styles/ProductDetails.styles"
-import { Button } from "./Styles/Form.styles.jsx";
+import { ContainerProductDetails, ContainerAllProductDetails, ImageCard  } from "./Styles/ProductDetails.styles"
+import { Button, ButtonDetails } from "./Styles/Form.styles.jsx";
 
 
 function ProductDetails() {
@@ -45,16 +45,16 @@ function ProductDetails() {
           <p><b>Size: </b> {item.size}</p>
         <div class='btn-product-detail'>
           <Link to="/cart">
-            <Button>Add to Cart</Button>
+            <ButtonDetails>Add to Cart</ButtonDetails>
           </Link>
          
           <Link to="/products-list">
-            <Button class='btn-back'>Back </Button>
+            <ButtonDetails class='btn-back'>Back </ButtonDetails>
           </Link></div>
           {user && user.role === "admin" && (
             <>
-              <Link to={`/product-details/${item._id}/edit`}>
-                <Button>Edit Product</Button>
+            <Link to={`/product-details/${item._id}/edit`}>
+              <ButtonDetails>Edit Product</ButtonDetails>
               </Link>
             </>
           )}

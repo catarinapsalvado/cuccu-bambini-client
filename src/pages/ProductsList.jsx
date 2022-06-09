@@ -60,11 +60,11 @@ function ProductsList() {
 
       {/* <Searchbar searchFilter={searchFilter} /> */}
 
+      <Cardtag>
       {products && cart &&
         products.map((item) => {
           return (
             
-            <Cardtag>
             <ProductCard
               key={item._id}
               className="card"
@@ -73,9 +73,9 @@ function ProductsList() {
               isUpdated={isUpdated}
               setIsUpdated={setIsUpdated}
             ></ProductCard>
-            </Cardtag>
           );
         })}
+        </Cardtag>
     </div>
   );
 }

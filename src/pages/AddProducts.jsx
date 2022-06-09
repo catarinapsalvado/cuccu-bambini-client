@@ -144,7 +144,7 @@ function AddProduct(props) {
           >
             <option>Clothing</option>
             <option>Footwear</option>
-            <option>Baby gear</option>
+            <option>Baby-gear</option>
           </select>
 
           {/* 

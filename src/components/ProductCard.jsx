@@ -62,8 +62,8 @@ function ProductCard(props) {
 
   return (
     
-    <div className="img-container">
-      <img className="cardImage" width='300vw' src={image} alt="image_product" />
+    <div className="cardContainer">
+      <img className="cardImage" width='100%' src={image} alt="image_product" />
       <h3 className="name">{name}</h3>
       <p className="price"> Price: {price} €</p>
       <Link to={`/product-details/${_id}`}>

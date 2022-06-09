@@ -20,7 +20,7 @@ function Home() {
     },
     {
       image:
-        "https://images.unsplash.com/photo-1570657891791-e39a9d185540?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "https://images.pexels.com/photos/4934411/pexels-photo-4934411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       caption: "",
     },
     {
@@ -69,7 +69,7 @@ function Home() {
             }}
           />
           <br></br>
-          <img src={Logo} alt="Logo" height="50px" />{" "}
+          <img src={Logo} alt="Logo" height="100px" />{" "}
           <p>
             <br></br> The fashion industry has an impact of textile production
             and waste on the environment. Clothing, footwear and home textiles
@@ -149,7 +149,7 @@ function Home() {
                   <b>Baby gear</b>
                 </Card.Title>
                 <Card.Text>
-                  All kinds of baby and children's items, from toys to nursery
+                  All kinds of baby and children's products, from toys to nursery
                   items
                 </Card.Text>
               </Card.Body>
