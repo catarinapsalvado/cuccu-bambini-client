@@ -58,8 +58,8 @@ function CategoryList() {
   return (
     <div>
       {" "}
-      <h1>products</h1>
-      <h3>{category.charAt(0).toUpperCase() + category.slice(1)} items</h3>
+    
+      <Title>{category.charAt(0).toUpperCase() + category.slice(1)} items</Title>
       
       {products.length > 0 && cart ? (
         

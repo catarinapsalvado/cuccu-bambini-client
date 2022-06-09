@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import ItemCart from "../components/ItemCart";
 import { Button, Title } from "./Styles/Form.styles";
+import {Cardtag, CartTag} from "./Styles/Card.styles"
 
 function Cart() {
   const [cart, setCart] = useState([]);
@@ -35,8 +36,8 @@ function Cart() {
 
   return (
     <div>
-      <h1>This is a Cart</h1>
-
+      <Title>Your Cart</Title>
+      <CartTag>
       {cart &&
         cart.product?.map((item) => {
           return (
@@ -48,8 +49,9 @@ function Cart() {
             />
           );
         })}
+        </CartTag>
 
-      <Title>Total: {total}</Title>
+      <Title>Total: {total} €</Title>
     </div>
   );
 }

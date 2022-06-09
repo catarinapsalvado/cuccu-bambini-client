@@ -44,9 +44,9 @@ function ProductDetails() {
           <p><b>Brand: </b> {item.brand}</p>
           <p><b>Size: </b> {item.size}</p>
         <div class='btn-product-detail'>
-          <Link to="/cart">
+      {/*     <Link to="/cart">
             <ButtonDetails>Add to Cart</ButtonDetails>
-          </Link>
+          </Link> */}
          
           <Link to="/products-list">
             <ButtonDetails class='btn-back'>Back </ButtonDetails>

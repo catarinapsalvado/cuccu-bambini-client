@@ -23,12 +23,14 @@ function ItemCart(props) {
 
   return (
     
-    <div className="img-container">
+    <div className="cartContainer">
       <img className="cardImage" src={image} alt="image_product" />
+      <div className="righ-side">
       <h3 className="name">{name}</h3>
-      <p className="price">{price}</p>
-      <Button onClick={() => removeFromCart(_id)}>Remove</Button>
-
+      <p className="price">Price: {price} €</p>
+      
+      <Button onClick={() => removeFromCart(_id)}>Remove 🗑️</Button>
+    </div>
     </div>
   );
 }

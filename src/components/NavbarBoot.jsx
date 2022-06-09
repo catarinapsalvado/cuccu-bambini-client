@@ -21,13 +21,16 @@ function NavbarBoot() {
           <Navbar.Brand as={Link} to="/">
             <img src={Logo} alt="Logo" height="30px" />{" "}
           </Navbar.Brand>
-
+          {!isLoggedIn && (
+            <>
           <NavLink eventKey="4" as={Link} to="/signup">
             Signup
           </NavLink>
           <NavLink eventKey="5" as={Link} to="/login">
             Login
           </NavLink>
+          </>
+          )}
           <NavLink eventKey="2" as={Link} to="/products-list">
             Items
           </NavLink>

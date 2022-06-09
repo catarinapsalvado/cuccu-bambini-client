@@ -75,7 +75,7 @@ function ProductCard(props) {
       {isInCart ? (
         <Button onClick={() => removeFromCart(_id)}>Remove from Cart</Button>
       ) : (
-        <Button onClick={() => addToCart(_id)}>Add to Cart</Button>
+        <Button onClick={() => addToCart(_id)}>Add to 🛒</Button>
       )}
     </div>
   );
