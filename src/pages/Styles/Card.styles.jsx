@@ -15,13 +15,16 @@ export const Cardtag = styled.div`
   .title {
     text-align: center;
   }
-  @media only screen and (max-width:700px ){
+
+  img {
+    height: 300px;
+  }
+  @media only screen and (max-width: 700px) {
     .cardContainer {
       width: 100%;
     }
   }
 `;
-
 
 // flex-direction: column;
 // display: grid;

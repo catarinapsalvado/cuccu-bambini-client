@@ -60,10 +60,13 @@ function CategoryList() {
       {" "}
       <h1>products</h1>
       <h3>{category.charAt(0).toUpperCase() + category.slice(1)} items</h3>
+      
       {products.length > 0 && cart ? (
-        products.map((item) => {
+        
+        <Cardtag>
+        {products.map((item) => {
           return (
-            <Cardtag>
+            
               <ProductCard
                 key={item._id}
                 className="card"
@@ -72,9 +75,11 @@ function CategoryList() {
                 isUpdated={isUpdated}
                 setIsUpdated={setIsUpdated}
               ></ProductCard>
-            </Cardtag>
-          );
-        })
+           
+          ) 
+        })}
+      </Cardtag>
+      
       ) : (
         <h2>'No products available'</h2>
       )}
