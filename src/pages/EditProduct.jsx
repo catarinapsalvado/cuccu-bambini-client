@@ -159,9 +159,10 @@ function EditProduct() {
             value={category}
             onChange={handleCategory}
           >
-            <option>Clothing</option>
+            <option></option>
             <option>Footwear</option>
-            <option>Baby gear</option>
+            <option>Baby-gear</option>
+            <option>Clothing</option>
           </select>
 
           <label htmlFor="available">Available</label>

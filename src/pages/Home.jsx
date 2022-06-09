@@ -87,7 +87,7 @@ function Home() {
           </p>
           <CardGroup>
             <Card>
-              <Card.Link as={Link} to="/category/clothings">
+              <Card.Link as={Link} to="/category/clothing">
                 <Card.Img
                   variant="top"
                   src={imagecard1}
