@@ -127,16 +127,7 @@ function AddProduct(props) {
             value={size}
             onChange={handleSize}
           />
-          {/* 
-          <label htmlFor="category">Category</label>
-          <UserInput
-            type="select"
-            name="category"
-            option
-            value={category}
-            onChange={handleCategory}
-          /> */}
-
+          
           <select
             category={category}
             value={category}

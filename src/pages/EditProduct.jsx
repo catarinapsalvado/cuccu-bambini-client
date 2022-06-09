@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import {Form, UserInput, Container, Button, Title} from "./Styles/Form.styles.jsx"
+import {
+  Form,
+  UserInput,
+  Container,
+  Button,
+  Title,
+} from "./Styles/Form.styles.jsx";
 
 function EditProduct() {
   const [name, setName] = useState("");
@@ -64,7 +70,7 @@ function EditProduct() {
     axios
       .post(`${process.env.REACT_APP_API_URL}/api/upload`, uploadData)
       .then((response) => {
-        console.log(response)
+        console.log(response);
         setImage(response.data.fileUrl);
       })
       .catch((err) => console.log("Error while uploading the file: ", err));
@@ -103,56 +109,72 @@ function EditProduct() {
   };
 
   return (
-  
-    <div className="EditProducts">  
+    <div className="EditProducts">
       <Title>Edit Product</Title>
       <Container>
-      <Form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
-        <UserInput type="text" name="name" value={name} onChange={handleName} />
+        <Form onSubmit={handleSubmit}>
+          <label htmlFor="name">Name</label>
+          <UserInput
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleName}
+          />
 
-        <label htmlFor="description">Description</label>
-        <textarea
-          name="description"
-          cols="30"
-          rows="10"
-          value={description}
-          onChange={handleDescription}
-        ></textarea>
+          <label htmlFor="description">Description</label>
+          <textarea
+            name="description"
+            cols="30"
+            rows="10"
+            value={description}
+            onChange={handleDescription}
+          ></textarea>
 
-        <label htmlFor="price">Price</label>
-        <UserInput
-          type="text"
-          name="price"
-          value={price}
-          onChange={handlePrice}
-        />
+          <label htmlFor="price">Price</label>
+          <UserInput
+            type="text"
+            name="price"
+            value={price}
+            onChange={handlePrice}
+          />
 
-        <label htmlFor="brand">Brand</label>
-        <UserInput type="text" name="name" value={brand} onChange={handleBrand} />
+          <label htmlFor="brand">Brand</label>
+          <UserInput
+            type="text"
+            name="name"
+            value={brand}
+            onChange={handleBrand}
+          />
 
-        <label htmlFor="size">Size</label>
-        <UserInput type="text" name="size" value={size} onChange={handleSize} />
+          <label htmlFor="size">Size</label>
+          <UserInput
+            type="text"
+            name="size"
+            value={size}
+            onChange={handleSize}
+          />
 
-        <label htmlFor="category">Category</label>
-        <UserInput
-          type="text"
-          name="category"
-          value={category}
-          onChange={handleCategory}
-        />
+          <select
+            category={category}
+            value={category}
+            onChange={handleCategory}
+          >
+            <option>Clothing</option>
+            <option>Footwear</option>
+            <option>Baby gear</option>
+          </select>
 
-        <label htmlFor="available">Available</label>
-        <UserInput
-          type="text"
-          name="available"
-          value={available}
-          onChange={handleAvailable}
-        />
-        <label htmlFor="image">Image:</label>
-        <UserInput type="file" onChange={(e) => handleFileUpload(e)} />
+          <label htmlFor="available">Available</label>
+          <UserInput
+            type="text"
+            name="available"
+            value={available}
+            onChange={handleAvailable}
+          />
+          <label htmlFor="image">Image:</label>
+          <UserInput type="file" onChange={(e) => handleFileUpload(e)} />
 
-        {/*    <label htmlFor="image">
+          {/*    <label htmlFor="image">
           Image:
           <input
             type="file"
@@ -161,13 +183,12 @@ function EditProduct() {
             onChange={handleImage}
             class="form-control-file"
           />
-        </label> */} 
-     
-        <Button type="submit">Edit</Button>
-      
-      <Button onClick={deleteProduct}>Delete</Button>
-      </Form>
+        </label> */}
 
+          <Button type="submit">Edit</Button>
+
+          <Button onClick={deleteProduct}>Delete</Button>
+        </Form>
       </Container>
     </div>
   );
