@@ -127,7 +127,7 @@ function AddProduct(props) {
             value={size}
             onChange={handleSize}
           />
-
+          {/* 
           <label htmlFor="category">Category</label>
           <UserInput
             type="select"
@@ -135,7 +135,18 @@ function AddProduct(props) {
             option
             value={category}
             onChange={handleCategory}
-          />
+          /> */}
+
+          <select
+            category={category}
+            value={category}
+            onChange={handleCategory}
+          >
+            <option>Clothing</option>
+            <option>Footwear</option>
+            <option>Baby gear</option>
+          </select>
+
           {/* 
         <label htmlFor="available">Available</label>
         <input
